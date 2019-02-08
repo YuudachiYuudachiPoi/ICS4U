@@ -21,7 +21,7 @@ def make_list(num_1,num_2):
     return num_list
 
 def print_list(num_list):
-    if isinstance(num_list,list):
+    if isinstance(num_list,range):
         string_list= []
         for num in num_list:
             string_list.append(str(num))
