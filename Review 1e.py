@@ -21,12 +21,12 @@ def make_list(num_1,num_2):
     return num_list
 
 def print_list(num_list):
-    try:
+    if isinstance(num_list,list):
         string_list= []
         for num in num_list:
             string_list.append(str(num))
         message = ' '.join(string_list)
-    except:
+    else:
         message = 'input number is the same.'
     
     print()
@@ -42,7 +42,7 @@ def write_name_to_file(name):
     name_file.write(name+'\n')
     name_file.close
 
-def mian():
+def main():
     name = welcome()
     write_name_to_file(name)
     not_exit = True
@@ -58,4 +58,4 @@ def mian():
             print()
 
 if __name__ == '__main__':
-    mian()
+    main()
