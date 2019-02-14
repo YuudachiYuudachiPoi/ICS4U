@@ -12,7 +12,7 @@ libary require: Math
 variable: None
 '''
 
-#Be known, I didn't a triangle checking function('6 6 6' will work in this program), becuase it need quite a lot work
+#To be noted that I didn't a triangle checking function('6 6 6' will work in this program), becuase it need quite a lot work
 
 def ask_length():
 
@@ -84,7 +84,7 @@ def main():
     return variable: None(type)
     '''
     
-    #Be known, I didn't a triangle checking function('6 6 6' will work in this program), becuase it need quite a lot work
+    #To be noted that I didn't a triangle checking function('6 6 6' will work in this program), becuase it need quite a lot work
 
     side_list = ask_length()
     area = calculate(side_list)
