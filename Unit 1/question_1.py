@@ -1,3 +1,8 @@
+'''
+name: question_1
+This program is writen by 希理(Howie Hong)
+date: 2019/2/14
+'''
 import math
 
 #----------------------------------------------------
