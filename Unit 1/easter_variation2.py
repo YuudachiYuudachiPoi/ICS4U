@@ -83,7 +83,7 @@ def main():
     year = ask_for_year()
     month,day = calculate(year)
 
-    print("Easter will fall on Sunday, "+month+" ",day+", ",year)
+    print("Easter will fall on Sunday, "+month,day,",",year)
 
 if __name__ == "__main__":
     main()
