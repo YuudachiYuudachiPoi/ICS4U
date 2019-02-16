@@ -14,14 +14,14 @@ libary require: None
 '''
 
 #function comments
-    '''
-    variable require: None(type)
+'''
+variable require: None(type)
 
-    function require: None
+function require: None
 
-    private variable: None
+private variable: None
 
-    purpose: this is a sample of commenrs
+purpose: this is a sample of commenrs
 
-    return variable: None(type)
+return variable: None(type)
     '''
