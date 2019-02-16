@@ -1,11 +1,11 @@
 '''
-name: palindrome2
+name: palindrome3
 
 This program is writen by 希理(Howie Hong)
 
 date: 2019/2/16
 
-purpose: This program determines if the words in a sentence are palindrome
+purpose: This program determines if  a sentence is palindrome
 
 libary require: None
 '''
@@ -17,29 +17,25 @@ def main():
     function require: word_check
 
     private variable:
-        word_list
-        word
+        sentence
+        changed_sentence
         check
-        palindromes_list
 
     purpose: this is the main function of this program
 
     return variable: None(type)
     '''
     print('Words that are arranged the same way forwards as they are backwards are called palindromes.')
-    print('This program determines if a word is a palindrome.')
-    word_list = input('Please enter a sentence\n(do not include puncyuation marks): ').split()
+    print('This program determines if a phrase is a palindrome.')
+    sentence = input('Please enter a sentence\n(do not include puncyuation marks): ')
+    changed_sentence = sentence.replace(' ','')
     print()
     
-    palindromes_list = []
-    for word in word_list:
-        check = word_check(word)
-        if check:
-            palindromes_list.append(word)
-    
-    print('There are',len(palindromes_list),'palindromes in this sentense')
-    print('The palindromes are:')
-    print(', '.join(palindromes_list))
+    check = word_check(changed_sentence)
+    if check:
+        print(sentence,'is a palindromes')
+    else:
+        print(sentence,'is not a palindrome.')
 
 
 def word_check(word):

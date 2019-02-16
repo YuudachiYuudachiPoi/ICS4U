@@ -14,8 +14,8 @@ libary require: None
 '''
 
 #function comments
-'''
- variable require: None(type)
+    '''
+    variable require: None(type)
 
     function require: None
 
@@ -24,4 +24,4 @@ libary require: None
     purpose: this is a sample of commenrs
 
     return variable: None(type)
-'''
+    '''
