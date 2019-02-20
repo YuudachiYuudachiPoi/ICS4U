@@ -3,7 +3,7 @@ name: morse_code
 
 This program is writen by 希理(Howie Hong)
 
-date: 2019/2/19
+date: 2019/2/20
 
 purpose: This program will encrypt or decrypt a phrase using the morse code
 
