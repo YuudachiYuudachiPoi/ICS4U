@@ -40,6 +40,8 @@ maxsplit
   -1 (the default value) means no limit.
 
 '''
-'aa aaa aaaabbb'.split()
-'aa aaa aaaabbb'.split(' ')
-'aa aaa aaaabbb'.split('a')
+print()
+print('aa aaa aaaabbb'.split())
+print('aa aaa aaaabbb'.split(' '))
+print('aa aaa aaaabbb'.split('a'))
+print('aa aaa aaaabbb'.split('b'))
