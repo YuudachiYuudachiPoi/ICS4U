@@ -16,7 +16,7 @@ rhyming_nouns = ["house","mouse","grouse","spouse","doghouse","beachhouse","tree
 
 noun1 = random.choice(nouns)
 
-#remove the items from the list, make sure they don't use again.
+#remove the items from the list, make sure they will not use again.
 verb1 = random.choice(verbs)
 verbs.remove(verb1)
 

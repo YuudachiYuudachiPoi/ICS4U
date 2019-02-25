@@ -1,12 +1,11 @@
 '''
-name: eratosthenes2
+name: Eratosthenes_old
 
 This program is writen by 希理(Howie Hong)
 
 date: 2019/2/25
 
-purpose: the impoved ver. of eratothenes
-    this impoved will only go thought the list once
+purpose: it will finding prime numbers(No recommended to find many prime numbers, because this is very slow)
 
 libary require: None
 
@@ -30,7 +29,7 @@ def make_num_list(start=2,end=1000):
     num_list = list(range(start,end+1))
     return num_list
 
-def remove_(divider):
+def remove_all_multiples(divider):
     '''
     variable require: divider(int,>1)
 
@@ -45,6 +44,24 @@ def remove_(divider):
         if num%divider == 0 and num != divider:
             num_list.remove(num)
 
+def find_the_next_divider(divider):
+    '''
+    variable require: None(type)
+
+    function require: None
+
+    purpose: it will find the next divider that grater than the last one in the num_list
+
+    return variable: num(int,>2) or None(return None there are no any)
+    '''
+    global num_list
+    for num in num_list:
+        if num > divider:
+            break
+    else:
+        return None
+    
+    return num
 
 def main():
     '''
