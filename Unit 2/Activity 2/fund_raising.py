@@ -5,7 +5,7 @@ Author: Howie Hong(希理)
 LastEditors: Howie Hong(希理)
 Description: 
 Date: 2019-03-01 15:00:15
-LastEditTime: 2019-03-01 18:19:47
+LastEditTime: 2019-03-01 18:42:11
 IMPORTANT NOTE!!!!!:
     make sure you change the size of the windows to fit entire tables
     or you can make the name of schools shorter\
@@ -84,7 +84,7 @@ def write_table(amount_choice,school_choice):
     '''
     description: ask the population of the school and write into the population_table
     param amount_choice{int},school_choice{int} 
-    return: 
+    return: population{int}
     '''
     global population_table,schools
     os.system('cls')
@@ -92,9 +92,10 @@ def write_table(amount_choice,school_choice):
     try:
         population = int(input('What is the population of '+schools[school_choice]+'? '))
     except:
-        write_table(amount_choice,school_choice)
+        population = write_table(amount_choice,school_choice)
 
     population_table[amount_choice][school_choice] = population
+    return population
 
 def calculate():
     '''
@@ -200,8 +201,10 @@ def input_amount():
 
     try:
         choice = int(input())
+        if not choice in [0,1,2,3,9]:
+            choice = input_amount()
     except:
-        choice = input_amount
+        choice = input_amount()
 
     return choice
 
@@ -225,6 +228,8 @@ def welcome():
 
     try:
         choice = int(input())
+        if not choice in range(10):
+            choice = welcome()
     except:
         choice = welcome()
 
