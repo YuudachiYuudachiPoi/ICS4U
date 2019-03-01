@@ -1,15 +1,11 @@
+#!/usr/bin/env python
+# coding=UTF-8
 '''
-name: simple_encryption
-
-This program is writen by 希理(Howie Hong)
-
-date: 2019/2/19
-
-purpose: This program will encrypt or decrypt a phrase using the simple encryption method of rotating the letters.
-
-libary require: None
-
-[variable: None]
+@Author: Howie Hong(希理)
+@LastEditors: Howie Hong(希理)
+@Description: 
+@Date: 2019-02-19 15:34:06
+@LastEditTime: 2019-03-01 14:37:55
 '''
 
 def input_rotation_amount():
@@ -78,18 +74,18 @@ def make_trans_table(rotation_amount):#To enhance the speed of the program, you 
     for n in range(97,123): #corresponing letter for a-z
         changed_n = n + rotation_amount
         if changed_n > 122:
-            changed_n = (changed_n-122)+97
+            changed_n = changed_n-26
         elif changed_n < 97:
-            changed_n = 122-(97-changed_n)
+            changed_n = changed_n+26
         
         out_tab += chr(changed_n)
 
     for n in range(65,91): #corresponing letter for A-Z
         changed_n = n + rotation_amount
         if changed_n > 90:
-            changed_n = (changed_n-90)+65
+            changed_n = changed_n-26
         elif changed_n < 65:
-            changed_n = 90-(65-changed_n)
+            changed_n = changed_n+26
         
         out_tab += chr(changed_n)
     
