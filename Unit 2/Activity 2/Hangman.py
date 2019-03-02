@@ -3,7 +3,7 @@
 '''
 Author: Howie Hong(希理)
 LastEditors: Howie Hong(希理)
-Description: 
+Description: the game of Hangman
 Date: 2019-03-01 19:21:42
 LastEditTime: 2019-03-01 20:49:25
 '''
