@@ -5,7 +5,7 @@ Author: Howie Hong(希理)
 LastEditors: Howie Hong(希理)
 Description: 
 Date: 2019-03-05 13:52:26
-LastEditTime: 2019-03-05 16:11:06
+LastEditTime: 2019-03-05 16:15:37
 '''
 import random,time,os,copy
 #---------------------------------------
@@ -115,8 +115,7 @@ def question():
     param {} 
     return: advance_num{int or 'exit'} 
     '''
-    message = '''How many generation do you want to advance?
-    (0 - exit geme)
+    message = '''How many generation do you want to advance?\n(0 - exit geme)
     '''
     advance_num = input(message)
     if advance_num.lower() == 'exit':
@@ -149,7 +148,7 @@ def main():
         for i in range(advance_num):
             calcuate()
             generation += 1
-            time.sleep(1)
+            time.sleep(1) #comment this if you want to run faster
             os.system('cls')
             print('----Generation {}'.format(generation)+'-'*20)
             print()
