@@ -5,7 +5,7 @@ Author: Howie Hong(希理)
 LastEditors: Howie Hong(希理)
 Description: 
 Date: 2019-03-01 15:00:15
-LastEditTime: 2019-03-05 16:25:36
+LastEditTime: 2019-03-06 18:22:15
 IMPORTANT NOTE!!!!!:
     make sure you change the size of the windows to fit entire tables
     or you can make the name of schools shorter\
@@ -88,7 +88,7 @@ def write_table(amount_choice,school_choice):
     '''
     global population_table,schools
     os.system('cls')
-    print_table()
+    #print_table()
     try:
         population = input('What is the population of '+schools[school_choice]+'?\n(add + in front of the number if you want to add the number to the original number)(For example: +1000, 4000)\n')
         if population[0] == '+':
@@ -197,7 +197,7 @@ def input_amount():
     '''
     global amount_options
     os.system('cls')
-    print_table()
+    #print_table()
     print('What is the donation amount?')
     for num,option in enumerate(amount_options):
         print('{} - '.format(num)+option[0])

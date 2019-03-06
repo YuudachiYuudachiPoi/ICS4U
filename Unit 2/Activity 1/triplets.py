@@ -34,5 +34,5 @@ rhyming_noun3 = random.choice(rhyming_nouns)
 
 print("The " + noun1 + " " + verb1 + " a " + rhyming_noun1)
 print("And then " + verb2 + " it in the " + rhyming_noun2)
-print("But it was a" +rhyming_noun3)
+print("But it was a " +rhyming_noun3)
 
