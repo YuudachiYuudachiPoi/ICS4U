@@ -5,7 +5,7 @@ Author: Howie Hong(希理)
 LastEditors: Howie Hong(希理)
 Description: calculate nCr
 Date: 2019-03-18 12:12:10
-LastEditTime: 2019-03-18 12:37:52
+LastEditTime: 2019-03-18 19:12:52
 '''
 
 def factorial(n):#you can use factorial function in math to replace it
@@ -36,4 +36,4 @@ print(message)
 r = int(input('How many objects would you like to choose? '))#not error checking, make should you enter a int that >=0
 n = int(input('How many objects are there to choose from? '))#not error checking, make should you enter a int that >=0
 
-print('There are {} ways to choose {} objects from a set of {} objects.'.format(c(n,r) ,r,n) )
+print('There are {} ways to choose {} objects from a set of {} objects.'.format(int(c(n,r)) ,r,n) )
