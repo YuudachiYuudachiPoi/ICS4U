@@ -3,34 +3,30 @@
 '''
 Author: Howie Hong(希理)
 LastEditors: Howie Hong(希理)
-Description: 
+Description:  reduce a fraction that is input by the user.
 Date: 2019-03-18 12:39:36
-LastEditTime: 2019-03-18 17:55:32
+LastEditTime: 2019-03-18 19:12:05
 '''
-def create_prime_list(max_number): # This code is copy from Unit 2/Activity 2/eratosthenes.py
-    prime_list = [2]
-    for num in range(2,max_number):#you can change the second number to a number that greater than 2
-        for divider in prime_list:
-            if num%divider == 0:
-                break
-        else: #if the num isn't multiple of all existed dividers
-            prime_list.append(num)
-            print(num)
-    return prime_list
 
-def reduce(numerator,denominator):
-    if denominator > numerator:
-        prime_list = create_prime_list(denominator)
+def gcd(n1,n2):
+    '''
+    description: Euclidean algorithm
+    param {int}{int} 
+    return: {int}
+    '''
+    if n2 != 0:
+        return gcd(n2,n1%n2)
     else:
-        prime_list = create_prime_list(numerator)
-    
-    if numerator in prime_list or denominator in prime_list:
+        return n1
 
-        if denominator >= numerator and denominator % numerator == 0:
-            return '1/{}'.format(denominator/numerator)
-        elif numerator > denominator and numerator % denominator == 0:
-            return '{}/1'.format(numerator/denominator)
-        else:
-            return '{}/{}'.format(numerator,denominator)
-    else:
-        pass
+numerator = int(input('What is the numerator of your fraction? '))
+denominator = int(input('What is the denominator of your fraction? '))
+print()
+
+if denominator > numerator:
+    n = gcd(denominator,numerator)
+else:
+    n = gcd(numerator,denominator)
+reduced_numerator,reduced_donominstor = numerator//n,denominator//n
+
+print('The fraction {}/{} '.format(numerator,denominator) + 'can be reduce to {}/{}'.format(reduced_numerator,reduced_donominstor))
