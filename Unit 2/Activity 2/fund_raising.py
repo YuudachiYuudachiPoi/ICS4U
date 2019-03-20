@@ -5,7 +5,7 @@ Author: Howie Hong(希理)
 LastEditors: Howie Hong(希理)
 Description: 
 Date: 2019-03-01 15:00:15
-LastEditTime: 2019-03-06 18:22:15
+LastEditTime: 2019-03-20 14:00:47
 IMPORTANT NOTE!!!!!:
     make sure you change the size of the windows to fit entire tables
     or you can make the name of schools shorter\
@@ -42,6 +42,7 @@ def table_init():
         population_table.append([])
         for i in range(len(schools)+1): #include Total
             population_table[n].append(0) 
+            i = i
     population_table.append(0) #total 
 
     money_table = []
