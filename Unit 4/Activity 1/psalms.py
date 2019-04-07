@@ -5,7 +5,7 @@ Author: Howie Hong(希理)
 LastEditors: Howie Hong(希理)
 Description: 
 Date: 2019-04-03 12:22:06
-LastEditTime: 2019-04-03 13:09:57
+LastEditTime: 2019-04-07 10:48:53
 '''
 def read_file(file_name='./Unit 4/Activity 1/Psalms2.txt'): #You need to change the path to make sure to work
     '''
@@ -43,6 +43,9 @@ def binary_seach(numbers,seach_number):
     left = 0
     right = len(numbers)-1
     while left <= right:
+
+        #print(numbers[left:right+1]) #To check is binary_seach working properly
+
         middle = (right+left)//2
         n = numbers[middle]
         if n == seach_number:
@@ -57,10 +60,11 @@ def binary_seach(numbers,seach_number):
         
     return found
 
+
 numbers,number_to_title = read_file()
-number = int(input('What psalm number would you like to see?(1 -99) '))
+number = int(input('What psalm number would you like to see?(1-99) '))
 if binary_seach(numbers,number):
     print('Psalm {}'.format(number))
-    print(number_to_title[11])
+    print(number_to_title[number])
 else:
     print('number was not found')
