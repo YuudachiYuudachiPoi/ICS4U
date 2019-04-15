@@ -5,7 +5,7 @@ Author: Howie Hong(希理)
 LastEditors: Howie Hong(希理)
 Description: 
 Date: 2019-04-07 14:19:32
-LastEditTime: 2019-04-07 15:22:02
+LastEditTime: 2019-04-15 17:43:16
 '''
 # http://interactivepython.org/courselib/static/pythonds/SortSearch/TheQuickSort.html was referenced
 def quick_sort(data, low, high):
@@ -36,18 +36,27 @@ def partition(data2, first, last):
   return right_mark
 
 # Begin mainline - Driver code to test above functions  
-nums = [22, 30, 15, 1, 7, 87, 65, 24, 22, 0]
+nums = []
 
+import random
+for n in range(10000):
+  nums.append(random.randint(0,1000))
+
+'''
 #print out unsorted list
 for count in range (0,len(nums)): 
   print(nums[count] , end = " ")
-    
+'''
+import time
 print("\n---------------------------------")
+a1 = time.process_time()
 quick_sort(nums, 0, len(nums) - 1)
+print((time.process_time()-a1)*1000)
 
+'''
 #print out sorted list
 print("After sorting using the Quick Sort, the array is:")
 for count in range (0,len(nums)): 
   print(nums[count] , end = " ")
-    
+'''
 print()
