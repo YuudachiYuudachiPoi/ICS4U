@@ -6,7 +6,7 @@ LastEditors: Howie Hong(希理)
 Description: A modified version of Unit 4/Activity 2/sorting_routines.py
     Now, it have counters
 Date: 2019-04-07 12:44:35
-LastEditTime: 2019-04-15 17:59:10
+LastEditTime: 2019-04-15 18:56:32
 '''
 
 class NumbersList:
@@ -36,13 +36,15 @@ class NumbersList:
         shift_counter = 0
 
         for i in range(len(data)-1):
+            loop_counter += 1
             smallest = i
             for index in range(i+1,len(data)):
                 loop_counter += 1
                 comparison_counter +=1
                 if data[index] < data[smallest]:
                     shift_counter += 1
-                    data[index], data[smallest] = data[smallest],data[index]
+                    smallest = index
+            data[i], data[smallest] = data[smallest],data[i]
         #self.data = data   #uncomment this if you want to apply changes
         return (loop_counter,comparison_counter,shift_counter)
 
@@ -164,7 +166,7 @@ def main():
 
     print('The unsorted list is:')
 
-    number_list.print()
+    #number_list.print()
 
     import time
     for type_of_sort in range(1,5):
