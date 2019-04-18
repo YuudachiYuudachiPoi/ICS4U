@@ -6,7 +6,7 @@ LastEditors: Howie Hong(希理)
 Description: This is a modified version of /Unit 4/Acticity 2/sorting_rountines.py
     Now, I added linear search, binary search and counters for them
 Date: 2019-04-17 13:02:57
-LastEditTime: 2019-04-17 13:05:32
+LastEditTime: 2019-04-19 05:38:58
 '''
 
 class NumbersList:
@@ -72,35 +72,125 @@ class NumbersList:
 
 
 
-    def binary_seach(numbers,seach_number):
+    def binary_search(self,search_number,counter = True):
         '''
-        description: binary seach
+        description: binary search
+            Note: numbers must be sorted before
         param: 
-            numbers{list} #all int
-            seach_number{int} 
-        return: is_in{boolean}
-            True: number is in the list
-            Flase: number is not in the list
+            search_number{int} 
+            counter
+                true: enable counter
+                False: disable counter
+        return: 
+            is_in{boolean}
+                True: number is in the list
+                Flase: number is not in the list
+            
+            if counter is disable:
+                processing_time:
+                    {float}(in second) # if counter is enable
+                loop_counter, comparison_counter:
+                    {int} # if counter is enable
+            
         '''
+        if counter:
+            import time
+            processing_time_start = time.perf_counter()
+            loop_counter = 0
+            comparison_counter = 0
+
         left = 0
-        right = len(numbers)-1
-        while left <= right:
+        right = len(self.data)-1
+        while True:
+            if counter:
+                loop_counter += 1
+                comparison_counter += 1
+            if left <= right:
+                #print(self.data[left:right+1]) #To check is binary_search working properly
 
-            #print(numbers[left:right+1]) #To check is binary_seach working properly
+                middle = (right+left)//2
+                n = self.data[middle]
 
-            middle = (right+left)//2
-            n = numbers[middle]
-            if n == seach_number:
-                found = True
-                break
-            elif n < seach_number:
-                left = middle+1
+                if counter:
+                    comparison_counter += 1
+                
+                if n == search_number:
+                    found = True
+                    break
+                elif n < search_number:
+                    left = middle+1
+                else:
+                    right = middle-1
             else:
-                right = middle-1
+                found = False
+                break
         else:
             found = False
+        
+        if counter:
+            processing_time = time.perf_counter() - processing_time_start
+            return  found,processing_time*1000,loop_counter,comparison_counter
+        else:
+            return found
+
+    def linear_search(self,search_number,sorted_list,counter = True):
+        '''
+        description: linear search
+        param: 
+            search_number{int}
+            sorted_list{boolean}
+                True: search in data (self.data) #make sure sorted it before, and from smaller to bigger
+                False: search in original_data (self.original)
+ 
+            counter
+                true: enable counter
+                False: disable counter
+        return: 
+            is_in{boolean}
+                True: number is in the list
+                Flase: number is not in the list
             
-        return found
+            if counter is disable:
+                processing_time:
+                    {float}(in ms) # if counter is enable
+                loop_counter, comparison_counter:
+                    {int} # if counter is enable
+        '''
+        if counter:
+            import time
+            processing_time_start = time.perf_counter()
+            loop_counter = 0
+            comparison_counter = 0
+
+        if sorted_list:
+            data = self.data
+        else:
+            data = self.original_data
+
+        for num in data:
+            if counter:
+                loop_counter += 1
+                comparison_counter += 1
+
+            if num == search_number:
+                found = True
+                break
+            
+            if sorted_list:
+                if counter:
+                    comparison_counter += 1
+                if num > search_number:
+                    found = False
+                    break
+            
+        else:
+            found = False
+
+        if counter:
+            processing_time = time.perf_counter() - processing_time_start
+            return  found,processing_time*1000,loop_counter,comparison_counter
+        else:
+            return found
 
     def reverse(self):
         self.data = self.data[::-1]
@@ -109,3 +199,50 @@ class NumbersList:
         for num in self.data:
             print(num,end=' ')
         print()
+
+def main():
+    number_of_numbers = int(input('How many random numbers do you wish to generate? '))
+    number_list = NumbersList(number_of_numbers)
+    number_list.make_list()
+    print('The unsorted list is:')
+    #number_list.print()
+    number_list.quick_sort()
+
+    search_number = int(input('What number do you want to search for? '))
+
+    a = number_list.linear_search(search_number,sorted_list=False)
+    print('-'*20+'''
+    Perfoming Linear Search (unsorted list)
+    Search returned: {}
+    Processing Time: {}ms
+    Loop_counter: {}
+    Comparison_counter: {}
+    '''.format(a[0],a[1],a[2],a[3]))
+
+    a = number_list.linear_search(search_number,sorted_list=True)
+    print('-'*20+'''
+    Perfoming Linear Search (sorted list)
+    Search returned: {}
+    Processing Time: {}ms
+    Loop_counter: {}
+    Comparison_counter: {}
+    '''.format(a[0],a[1],a[2],a[3]))
+
+    a = number_list.binary_search(search_number)
+    print('-'*20+'''
+    Perfoming Binary Search
+    Search returned: {}
+    Processing Time: {}ms
+    Loop_counter: {}
+    Comparison_counter: {}
+    '''.format(a[0],a[1],a[2],a[3]))
+
+if __name__ == "__main__":
+    main()
+    '''
+    a = NumbersList(1000)
+    a.make_list()
+    a.quick_sort()
+    k = a.linear_search(12,sorted_list=True)
+    print(k)
+    '''

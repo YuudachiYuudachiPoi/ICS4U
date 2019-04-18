@@ -42,8 +42,8 @@ class NumbersList:
                 loop_counter += 1
                 comparison_counter +=1
                 if data[index] < data[smallest]:
-                    shift_counter += 1
                     smallest = index
+            shift_counter += 2
             data[i], data[smallest] = data[smallest],data[i]
         #self.data = data   #uncomment this if you want to apply changes
         return (loop_counter,comparison_counter,shift_counter)
@@ -62,7 +62,7 @@ class NumbersList:
                 loop_counter += 1
                 comparison_counter += 1
                 if data[i] < data[i - 1]:
-                    shift_counter += 1
+                    shift_counter += 2
                     data[i],data[i-1] = data[i-1],data[i]
         #self.data = data   #uncomment this if you want to apply changes
 
@@ -87,7 +87,8 @@ class NumbersList:
                 comparison_counter += 1
                 if move_item > 0 and data[move_item - 1] > insert:
                     loop_counter += 1
-                        
+                    
+                    shift_counter += 2
                     data[move_item] = data[move_item - 1]
                     move_item -= 1
                 else:
@@ -166,7 +167,7 @@ def main():
 
     print('The unsorted list is:')
 
-    #number_list.print()
+    number_list.print()
 
     import time
     for type_of_sort in range(1,5):
