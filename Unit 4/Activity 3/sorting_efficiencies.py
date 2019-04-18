@@ -6,7 +6,7 @@ LastEditors: Howie Hong(希理)
 Description: A modified version of Unit 4/Activity 2/sorting_routines.py
     Now, it have counters
 Date: 2019-04-07 12:44:35
-LastEditTime: 2019-04-15 18:56:32
+LastEditTime: 2019-04-18 12:41:28
 '''
 
 class NumbersList:
@@ -171,7 +171,6 @@ def main():
     import time
     for type_of_sort in range(1,5):
         print('-'*30)
-        message = ['']
         if type_of_sort == 1:
             print('Parfoming Selection Sort')
 
