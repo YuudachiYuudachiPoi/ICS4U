@@ -6,7 +6,7 @@ LastEditors: Howie Hong(希理)
 Description: A modified version of Unit 4/Activity 2/sorting_routines.py
     Now, it have counters
 Date: 2019-04-07 12:44:35
-LastEditTime: 2019-04-18 12:41:28
+LastEditTime: 2019-04-23 10:53:00
 '''
 
 class NumbersList:
@@ -99,7 +99,7 @@ class NumbersList:
         return (loop_counter,comparison_counter,shift_counter)
         #self.data = data   # uncomment this if you want to apply changes
         
-    def quick_sort(self,data=None,loop_counter = 0,comparison_counter = 0,shift_counter = 0):
+    def quick_sort(self,data=None):
         '''
         description: quick_sort
         param {None or list} 
@@ -113,8 +113,14 @@ class NumbersList:
             import copy
             data = copy.copy(self.data)
 
+        loop_counter = 0
+        comparison_counter = 0
+        shift_counter = 0
+
+
         if len(data) > 1:
             first = data[0]
+            shift_counter += 1
             left,right,mid = [],[],[first]
             for num in data[1:]:
                 
@@ -129,18 +135,23 @@ class NumbersList:
                 else:
                     mid.append(num)
             
-            returned_tuple = self.quick_sort(left,loop_counter,comparison_counter,shift_counter)
+            loop_counter += 1
+            returned_tuple = self.quick_sort(left)
             sorted_left = returned_tuple[0]
+    
             loop_counter += returned_tuple[1]
             comparison_counter += returned_tuple[2]
             shift_counter += returned_tuple[3]
             
-            returned_tuple = self.quick_sort(right,loop_counter,comparison_counter,shift_counter)
+            loop_counter += 1
+            returned_tuple = self.quick_sort(right)
             sorted_right = returned_tuple[0]
+
             loop_counter += returned_tuple[1]
             comparison_counter += returned_tuple[2]
             shift_counter += returned_tuple[3]
 
+            
             data = sorted_left + mid + sorted_right
               
             if len(data) == len(self.data):
