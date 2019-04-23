@@ -6,7 +6,7 @@ LastEditors: Howie Hong(希理)
 Description: This is a modified version of /Unit 4/Acticity 2/sorting_rountines.py
     Now, I added linear search, binary search and counters for them
 Date: 2019-04-17 13:02:57
-LastEditTime: 2019-04-19 05:38:58
+LastEditTime: 2019-04-23 08:43:13
 '''
 
 class NumbersList:
@@ -205,7 +205,7 @@ def main():
     number_list = NumbersList(number_of_numbers)
     number_list.make_list()
     print('The unsorted list is:')
-    #number_list.print()
+    number_list.print()
     number_list.quick_sort()
 
     search_number = int(input('What number do you want to search for? '))
