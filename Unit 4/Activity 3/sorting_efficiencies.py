@@ -10,7 +10,7 @@ LastEditTime: 2019-04-23 10:53:00
 '''
 
 class NumbersList:
-    #I used copy.copy , I will not copy the elements in the list.
+    #I used copy.copy , It will not copy the elements in the list.
     #If you want to change the number in the list, please use copy.deepcopy
 
     #In order to keep study different methods,I didn't apply the change of the self.data
@@ -86,8 +86,6 @@ class NumbersList:
                 loop_counter += 1
                 comparison_counter += 1
                 if move_item > 0 and data[move_item - 1] > insert:
-                    loop_counter += 1
-                    
                     shift_counter += 2
                     data[move_item] = data[move_item - 1]
                     move_item -= 1
