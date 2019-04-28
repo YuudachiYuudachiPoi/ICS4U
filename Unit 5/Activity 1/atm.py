@@ -5,7 +5,7 @@ Author: Howie Hong(希理)
 LastEditors: Howie Hong(希理)
 Description: 
 Date: 3019-04-28 09:45:34
-LastEditTime: 2019-04-28 13:23:44
+LastEditTime: 2019-04-28 14:51:39
 '''
 class ATM():
     '''
@@ -36,15 +36,17 @@ class ATM():
 
         account_data = self.__latest_record(account_number)
         if account_data == None:
+            pass
             '''
             self.create_account(account_number) #it should let customer contact a bank branch. However,in this program, it create an account for convenience
             account_data = self.__latest_record(account_number)
             '''
-        self.account_number = account_data[0]
-        self.bank_name = account_data[1]
-        self.balance = float(account_data[2])
-        #self.daily_interest = float(account_data[3])
-        #last_record_time = float(account_data[4])
+        else:
+            self.account_number = account_data[0]
+            self.bank_name = account_data[1]
+            self.balance = float(account_data[2])
+            #self.daily_interest = float(account_data[3])
+            #last_record_time = float(account_data[4])
         '''
         import time
         now_time = time.time()
@@ -70,7 +72,7 @@ class ATM():
 
     def withdraw(self,amount_of_money):
         if amount_of_money > 0:
-            if self.balance - amount_of_money > 0:
+            if self.balance - amount_of_money >= 0:
                 self.balance -= amount_of_money
                 self.__write_record('withdraw')
                 return 'You withdrew ${}'.format(amount_of_money)
@@ -81,41 +83,42 @@ class ATM():
     
     def add_daily_interest(self,interest_rate,number_of_day):
         if interest_rate>0 and number_of_day>0:
-            self.balance = self.balance*(1+interest_rate)**number_of_day
+            self.balance = self.balance*(1+(interest_rate/100))**number_of_day
             self.__write_record('calculate_interest')
             #self.__write_record('user_log_in')
             return 'interest calculated, and added to you balance'
         else:
             return 'request denied'
 
-    def current_balance(self,account_number):
+    def current_balance(self):
+        return self.__latest_record(self.account_number)[2]
+
+    def account_exist(self,account_number):
         if self.__latest_record(account_number) == None:
-            return 'Can not find your account'
+            return False
         else:
-            return self.__latest_record(account_number)[1]
+            return True
 
     def __latest_record(self,account_number):
         '''
         description: find the lastest record of the account
         param account_number{str} 
-        return: account_data{ [bank_name,balance,daily_interest,last_record_time,operation] }(all of them are str)
+        return: account_data{ [account_number,bank_name,balance,daily_interest,last_record_time,operation] }(all of them are str)
         '''
         import sys
         path = sys.path[0]
         with open(path+'\\bank_data_base.txt','r') as data_base:
             data = data_base.read().split('\n')[1:][::-1]  #change it to writeline method if the data is very big
 
-
-        len_of_account_number = len(account_number)
         for record in data:
-            if record[:len_of_account_number] == account_number:
-                account_data = record.split()
+            account_data = record.split()
+            if account_data[0] == account_number:
                 return account_data
         else:
             return None
 
 
-    def create_account(self,account_number,bank_name='TD',initial_balance=5000.0,daily_interest=0.05): #constructor
+    def create_account(self,account_number,bank_name='TD',initial_balance=5000.0):#,daily_interest=0.05): #constructor
         '''
         description: create a bank account
         param {str} 
@@ -141,7 +144,7 @@ class ATM():
             data_base.write('\n')
             data_base.write('{:<30}'.format(self.account_number))
             data_base.write('{:<30}'.format(self.bank_name))
-            data_base.write('{:<30}'.format(self.balance))
+            data_base.write('{:<30}'.format(round(self.balance,2)))
             #data_base.write('{:<30}'.format(self.daily_interest))
             #data_base.write('{:<30}'.format(time.time()))
             data_base.write('{:<30}'.format(operation))
