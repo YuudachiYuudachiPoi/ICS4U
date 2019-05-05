@@ -7,7 +7,7 @@ Description:
 Date: 2019-05-05 16:33:18
 LastEditTime: 2019-05-05 17:06:08
 '''
-import sys,os
+import sys
 path = sys.path[0]
 sys.path.append(path)
 import dog
