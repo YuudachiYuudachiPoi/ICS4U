@@ -1,3 +1,12 @@
+#!/usr/bin/env python
+# coding=UTF-8
+'''
+Author: Howie Hong(希理)
+LastEditors: Howie Hong(希理)
+Description: 
+Date: 2019-05-05 16:33:18
+LastEditTime: 2019-05-05 16:46:56
+'''
 class Dog():
     '''
     description: 
@@ -26,15 +35,20 @@ class Dog():
             self.aggression = aggression
 
     def friendly(self,other):
-        
+        if (self.hunger or self.aggression) and (other.hunger or self.aggression):
+            return False
+        else:
+            return True
 
     def __str__(self):
         message = 'Name: {}\nBreed: {}\nAge: {}\n'.format(self.name,self.breed,self.age)
-        if aggression:
+        if self.aggression:
             message += 'Aggression: Yes\n'
         else:
             message += 'Aggression: No\n'
-        if hunger:
+        if self.hunger:
             message += 'Hunger: Yes\n'
         else:
             message += 'Hunger: No\n'
+        
+        return message
