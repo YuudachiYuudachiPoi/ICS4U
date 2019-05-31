@@ -1,0 +1,24 @@
+The Purpose or Reason for Doing the Project
+    This goal of this project is making a game that can creating a sudoku game that can generate and solve the game board.
+    The main purpose of this project is studying algorithm of generating and solving sudoku
+    The title of this project is 'Sudoku'
+
+The Goals or Targets of the project
+    Goal: generating a sudoku game board and solving it by computer
+    Targets: Ther two targets of this project
+        1. people who want to study sudoku algorithm
+        2. people who want a sudoku game
+
+    Facts: 
+        1. solving sudoku by computer
+        2. generating sudoku game board randomly
+
+        possible facts:
+            1. gui
+            2. solving sudo by user
+            3. api for studying sudoku
+    
+
+The Benefits or Gains of the project
+    generate almost unlimited number of sudoku board for user
+    solving sudoku
